@@ -30,8 +30,8 @@ export const getElectronic = async id => {
     return electronic.exists ? electronic.data() : null;
 }
 
-export const updateElectronic = (id, reviewerID, reviewerName, overall) => {
-    return electronicsCollection.doc(id).update(reviewerID, reviewerName, overall);
+export const updateElectronic = (id, electronic) => {
+    return electronicsCollection.doc(id).update(electronic);
 }
 
 export const deleteElectronic = id => {
