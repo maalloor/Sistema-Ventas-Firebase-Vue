@@ -1,17 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h1>Práctica Firebase - Vue</h1>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import { onMounted } from "vue";
+import { auth } from "./firebase";
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  setup()
+  {
+    onMounted(()=> {
+      auth.onAuthStateChanged((user) => {
+        if (user)
+        {
+          console.log("Login");
+        }
+        else
+        {
+          console.log("No Login");
+        }
+      });
+    });
   }
-}
+};
 </script>
 
 <style>
