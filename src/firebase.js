@@ -1,8 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from 'firebase/firestore/lite';
+import { getFirestore, collection } from 'firebase/firestore/lite';
 import { ref, onUnmounted } from 'vue';
-import 'firebase/compat/storage';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -19,7 +18,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const electronicsCollection = db.collection('electronics');
+const electronicsCollection = collection(db, "electronics");
 
 export const createElectronic = electronic => {
     return electronicsCollection.add(electronic);

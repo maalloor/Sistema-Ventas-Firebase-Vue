@@ -1,9 +1,5 @@
 <template>
-  <h1>Práctica Firebase - Vue</h1>
+  <div class="container">
+    <router-view />
+  </div>
 </template>
-
-<script>
-export default {
-  name: 'App',
-};
-</script>
